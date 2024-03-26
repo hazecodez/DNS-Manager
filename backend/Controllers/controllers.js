@@ -14,6 +14,7 @@ const securePassword = async (password) => {
 
 exports.userRegistration = async (req, res) => {
   try {
+    console.log(req.body);
     const { name, email, password } = req.body;
     const secPassword = await securePassword(password);
     const exist = await User?.findOne({ email: email });
